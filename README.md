@@ -3,6 +3,10 @@ This project implements a Retrieval-Augmented Generation (RAG) system that allow
 
 ---
 
+## System UI
+![System Flow](SYSTEMflow.PNG)
+![System UI](SYSTEMUI.jpg)
+
 ```markdown
 # 📄 PDF Question Answering System Using RAG
 
@@ -10,9 +14,7 @@ This project implements a **Retrieval-Augmented Generation (RAG)** system that a
 
 ---
 
-## System UI
-![System Flow](SYSTEMflow.PNG)
-![System UI](SYSTEMUI.jpg)
+
 ---
 
 
