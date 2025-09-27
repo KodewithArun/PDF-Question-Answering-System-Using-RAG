@@ -10,6 +10,13 @@ This project implements a **Retrieval-Augmented Generation (RAG)** system that a
 
 ---
 
+## System UI
+![System Flow](SYSTEMflow.PNG)
+![System UI](SYSTEMUI.jpg)
+---
+
+
+
 ## 🧠 Overview
 
 The pipeline includes the following components:
@@ -19,7 +26,7 @@ The pipeline includes the following components:
 3. **Embedding Generation** using HuggingFace's `all-MiniLM-L6-v2`
 4. **Vector Storage** using ChromaDB
 5. **Document Retrieval** using `ParentDocumentRetriever`
-6. **Prompting & LLM** using Gemini from Google via LangChain
+6. **Prompting & LLM** using Chat Groq via LangChain
 7. **Question Answering** using a RAG chain
 
 ---
@@ -45,10 +52,10 @@ Make sure to install the following packages:
 pip install langchain langchain-community langchain-google-genai unstructured chromadb sentence-transformers python-dotenv
 ```
 
-Also, you'll need to set up a Google API key for Gemini. Store it in a `.env` file:
+Also, you'll need to set up a Chat Groq API key for Chat Groq. Store it in a `.env` file:
 
 ```env
-GOOGLE_API_KEY=your_api_key_here
+CHAT_GROQ_API_KEY=your_api_key_here
 ```
 
 ---
@@ -125,9 +132,12 @@ from langchain_core.output_parsers import StrOutputParser
 
 prompt_template = PromptTemplate(...)
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.2)
+llm = ChatGroq(
+    model="model-name",
+    temperature=0,
+    max_retries=3
+)
 parser = StrOutputParser()
-```
 
 ### 7. RAG Chain
 
@@ -202,11 +212,6 @@ Place your PDF file inside the `data/` folder and name it `test.pdf`, or update 
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 
 ---
-
-## 📬 Contact
-
-For any questions or improvements, feel free to reach out or open an issue.
-```
 
 
 
